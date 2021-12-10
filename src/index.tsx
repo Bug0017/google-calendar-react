@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GoogleCalendar from './GoogleCalendar';
 import './index.css';
-import App from './App';
-import GlobalProvider from './context/GlobalProvider';
-
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
+    <GoogleCalendar/>
   </React.StrictMode>,
   document.getElementById("root")
 );

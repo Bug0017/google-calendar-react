@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { useContext } from "react";
 import { tw } from "twind"
 import GlobalContext from "../context/GlobalContext";
@@ -7,7 +8,7 @@ const CalendarHeader = () => {
     return (
       <header className={tw`flex px-4 py-2 items-center`}>
         <h1 className={tw`mr-10 text-xl text-gray-500 font-bold`}>Calendar</h1>
-        <button className={tw`border rounded py-2 px-4 mr-5`}>Today</button>
+        <button className={tw`border rounded py-2 px-4 mr-5`} onClick={()=>{setMonthIndex(dayjs().month())}}>Today</button>
         <button
           onClick={() => {
             setMonthIndex(monthIndex - 1);
@@ -30,6 +31,8 @@ const CalendarHeader = () => {
             chevron_right
           </span>
         </button>
+
+        <h2 className={tw`ml-4 text-xl text-gray-500 font-bold`}>{dayjs(new Date(dayjs().year(),monthIndex)).format("MMMM YYYY")}</h2>
       </header>
     );
 }
